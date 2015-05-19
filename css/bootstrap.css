@@ -6582,7 +6582,11 @@ button.close {
   }
 }
 
+.first-list {
+  float: left;
+  width: 200px;
+}
 .list-thing {
-  float: right;
+  float: left;
 }
 /*# sourceMappingURL=bootstrap.css.map */
