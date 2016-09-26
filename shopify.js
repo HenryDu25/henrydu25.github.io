@@ -30,7 +30,7 @@ function load6Pages (startingPageNum) {
 		if (!(pg1[0].products.length != pg6[0].products.length || pg6[0].products.length == 0)) {
 			load6Pages(startingPageNum + 6);
 		} else {
-			$("#price").text((totalPrice / 100).toFixed(2));
+			$("#price").text("$" + (totalPrice / 100).toFixed(2));
 			$("#products").text(numProducts);
 			totalPrice = 0;
 			numProducts = 0;
