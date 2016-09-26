@@ -1,5 +1,6 @@
 var totalPrice = 0;
 var numProducts = 0;
+
 $( document ).ready(function() {
     $("#button").click(function () {
     	$("#button").click(function(){});
@@ -7,6 +8,10 @@ $( document ).ready(function() {
     });
 });
 
+// Loads six pages at a time and checks to see if he program has reached the end of the store.
+// This allows the program to speed up the process by loading many pages at once instead of waiting for one to complete before starting the next one
+// It also avoids the issue where the program does not know when to stop loading more pages
+// This program accounts for an arbitrary amount of pages in a shopify store
 function load6Pages (startingPageNum) {
 	$.when(loadPage(startingPageNum),
 		loadPage(startingPageNum + 1),
@@ -37,6 +42,7 @@ function addPrices (pageObject, num) {
 	for (var i = pageObject.products.length - 1; i >= 0; i--) {
 		for (var j = pageObject.products[i].variants.length - 1; j >= 0; j--) {
 			numProducts++;
+			// The rounding is due to the errors found in floating numbers by making it into an integer
 			totalPrice += Math.round(parseFloat(pageObject.products[i].variants[j].price) * 100);
 		}
 	}
